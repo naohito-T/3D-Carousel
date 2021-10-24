@@ -26,15 +26,15 @@ export const carousel = (root: any) => {
     const apothem = s / (2 * Math.tan(Math.PI / n));
     figure.style.transformOrigin = `50% 50% ${-apothem}px`;
 
-    for (var i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
+    for (let i = 0; i < n; i++) images[i].style.padding = `${gap}px`;
 
-    for (i = 1; i < n; i++) {
+    for (let i = 1; i < n; i++) {
       images[i].style.transformOrigin = `50% 50% ${-apothem}px`;
       images[i].style.transform = `rotateY(${i * theta}rad)`;
     }
 
     if (bfc)
-      for (i = 0; i < n; i++) images[i].style.backfaceVisibility = 'hidden';
+      for (let i = 0; i < n; i++) images[i].style.backfaceVisibility = 'hidden';
 
     rotateCarousel(currentImage);
   };
@@ -54,7 +54,7 @@ export const carousel = (root: any) => {
       e.stopPropagation();
 
       const t = e.target;
-      if (t.tagName.toUpperCase() != 'BUTTON') return;
+      if (t.tagName.toUpperCase() !== 'BUTTON') return;
 
       if (t.classList.contains('next')) {
         imgIndex++;
